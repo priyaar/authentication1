@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "589975024469",
+    "firebase_url": "https://authentication-dcbdc.firebaseio.com",
+    "project_id": "authentication-dcbdc",
+    "storage_bucket": "authentication-dcbdc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589975024469:android:7df66c47bcaadab337f5dc",
+        "android_client_info": {
+          "package_name": "com.example.authentication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589975024469-dh2tdrssi3g952nv5j5cm2kvva9ncgqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX_s29Ww4Ud4MJy7uLdHc9rsxwQagXzKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "589975024469-dh2tdrssi3g952nv5j5cm2kvva9ncgqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
