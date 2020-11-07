@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
     Button mLoginBtn;
     TextView mCreateBtn , forgotTextLink;
     ProgressBar ProgressBar;
-    FirebaseAuth fAuth;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
 
         mEmail = findViewById (R.id. Email);
         mpassword = findViewById (R.id.Password);
-        fAuth = FirebaseAuth.getInstance ();
+        mAuth = FirebaseAuth.getInstance ();
         ProgressBar  = findViewById (R.id.progressBar2);
         mLoginBtn =findViewById (R.id.loginBtn);
         mCreateBtn = findViewById (R.id.creatText);
@@ -68,7 +68,7 @@ public class Login extends AppCompatActivity {
 
                 ProgressBar.setVisibility(View.VISIBLE);
                 //authenticate the user
-                fAuth.signInWithEmailAndPassword (email,Password).addOnCompleteListener (new OnCompleteListener<AuthResult> ( ) {
+                mAuth.signInWithEmailAndPassword (email,Password).addOnCompleteListener (new OnCompleteListener<AuthResult> ( ) {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful ( )) {
@@ -108,7 +108,7 @@ public class Login extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         // extract the email and send reset link
                         String mail = resetMail.getText ().toString ();
-                        fAuth.sendPasswordResetEmail (mail).addOnSuccessListener (new OnSuccessListener<Void> ( ) {
+                        mAuth.sendPasswordResetEmail (mail).addOnSuccessListener (new OnSuccessListener<Void> ( ) {
                             @Override
                             public void onSuccess(Void aVoid) {
                               Toast.makeText (Login.this,"Reset Link Sent To Your Email ", Toast.LENGTH_SHORT).show ();

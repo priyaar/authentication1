@@ -27,7 +27,7 @@ public class Register extends AppCompatActivity {
             EditText mFullName,mEmail,mUsn,mPassword;
             Button mRegisterBtn;
             TextView mloginBtn;
-            FirebaseAuth fAuth;
+            FirebaseAuth mAuth;
             android.widget.ProgressBar ProgressBar;
 
 
@@ -43,9 +43,9 @@ public class Register extends AppCompatActivity {
                 mRegisterBtn = findViewById (R.id.registerBtn);
                 mloginBtn = findViewById (R.id.loginBtn);
                 ProgressBar = findViewById (R.id.progressBar);
-                fAuth = FirebaseAuth.getInstance ( );
+                mAuth = FirebaseAuth.getInstance ( );
 
-                if (fAuth.getCurrentUser () != null){
+                if (mAuth.getCurrentUser () != null){
                     startActivity (new Intent (getApplicationContext (),MainActivity.class));
                     finish ();
             }
@@ -76,12 +76,12 @@ public class Register extends AppCompatActivity {
                         ProgressBar.setVisibility(View.VISIBLE);
                         //register the user in firebase//
 
-                        fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult> ( ) {
+                        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult> ( ) {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful ()){
                                     //send verification link
-                                    FirebaseUser fuser = fAuth.getCurrentUser ();
+                                    FirebaseUser fuser = mAuth.getCurrentUser ();
                                     fuser.sendEmailVerification ().addOnSuccessListener (new OnSuccessListener<Void> ( ) {
                                         @Override
                                         public void onSuccess(Void aVoid) {
