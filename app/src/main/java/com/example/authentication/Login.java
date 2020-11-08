@@ -75,6 +75,15 @@ public class Login extends AppCompatActivity {
                             ProgressBar.setVisibility(View.INVISIBLE);
                             Toast.makeText(Login.this," Logined in Successfully",Toast.LENGTH_LONG).show();
                             startActivity (new Intent (getApplicationContext (),MainActivity.class));
+
+
+                            //code for not going back to login when pressed back button
+                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+
+
                         }
                         else{
 

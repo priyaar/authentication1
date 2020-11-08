@@ -13,10 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -25,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
 Button logoutBtn , resendCode;
 TextView verifyMsg;
 FirebaseAuth mAuth;
+private ViewPager mViewPager;
+private sectionsPagerAdapter mSectionsPageerAdapter;
 
+private TabLayout mTabLayout;
 
 
 
@@ -37,6 +42,20 @@ FirebaseAuth mAuth;
         resendCode=findViewById (R.id.resendCode);
         verifyMsg = findViewById (R.id.verifyMsg);
         mAuth=FirebaseAuth.getInstance ();
+
+
+
+
+          //Tabs
+        mViewPager=(ViewPager)findViewById (R.id.main_tabPager);
+        mSectionsPageerAdapter=new sectionsPagerAdapter (getSupportFragmentManager ());
+        mViewPager.setAdapter (mSectionsPageerAdapter);
+
+        mTabLayout=(TabLayout)findViewById (R.id.main_tabs);
+        mTabLayout.setupWithViewPager (mViewPager);
+
+
+
 
 
         final FirebaseUser user =mAuth .getCurrentUser ();
